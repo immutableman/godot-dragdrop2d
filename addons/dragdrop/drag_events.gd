@@ -1,7 +1,11 @@
 extends Node
 
+## Called when the mouse changes which Draggable will be moved if the player drags.
+## See also Draggable.hovered
 signal hover_target_changed(new_source: Draggable, old_source: Draggable)
+## Called when the player starts to drag something. See also Draggable.drag_started
 signal dragging(draggable: Draggable)
+## Called when the player releases a drag. See also Draggable.drag_ended
 signal dropped(draggable: Draggable)
 
 var _hover_targets: Dictionary
@@ -33,7 +37,7 @@ func _update_hover():
 			_hover_source.hovering(false)
 		if new_hover_source:
 			new_hover_source.hovering(true)
-		DragEvents.hover_target_changed.emit(new_hover_source, _hover_source)
+		hover_target_changed.emit(new_hover_source, _hover_source)
 		_hover_source = new_hover_source
 
 func try_drag(draggable: Draggable, start: bool):
@@ -52,10 +56,10 @@ func _start_drag(draggable: Draggable):
 	
 	_drag_source = draggable
 	draggable.dragging(true)
-	DragEvents.dragging.emit(draggable)
+	dragging.emit(draggable)
 
 func _end_drag(draggable: Draggable):
 	draggable.dragging(false)
 	if _drag_source == draggable:
-		DragEvents.dropped.emit(draggable)
+		dropped.emit(draggable)
 		_drag_source = null

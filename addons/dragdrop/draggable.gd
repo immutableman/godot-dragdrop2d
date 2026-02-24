@@ -9,17 +9,21 @@ class_name Draggable
 
 ## Best drop target. Updated each frame.
 var drop_target: Area2D
+## All overlapping drop targets. Updated each frame.
+var drop_targets : Array[Area2D] = []
+
+## Called when this draggable is hovered or unhovered.
+signal hovered(is_hovered: bool)
+## Called when the player starts to drag this.
+signal drag_started()
+## Called while the player is dragging and the player drags this over a drop area.
+signal drop_target_changed(new_target: Area2D, old_target: Area2D)
+## Called when the player drops this, and the target that it hits. You can use
+## `drop_targets` if you want the list of all overlapped areas.
+signal drag_ended(drop_target: Area2D)
 
 # Things currently in range of this Draggable
 var _candidate_targets : Array[Area2D] = []
-# Filtered candidates
-var drop_targets : Array[Area2D] = []
-
-signal hovered(is_hovered: bool)
-signal drag_started()
-signal drop_target_changed(new_target: Area2D, old_target: Area2D)
-signal drag_ended(drop_target: Area2D)
-
 var _is_hovering := false
 var _is_dragging := false
 var _drag_anchor : Vector2
