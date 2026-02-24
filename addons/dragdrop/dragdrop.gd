@@ -1,15 +1,15 @@
 @tool
 extends EditorPlugin
 
+# Replace this value with a PascalCase autoload name, as per the GDScript style guide.
+const AUTOLOAD_NAME = "DragEvents"
 
 func _enable_plugin() -> void:
-	# Add autoloads here.
-	pass
+	add_autoload_singleton(AUTOLOAD_NAME, "res://addons/dragdrop/drag_events.tscn")
 
 
 func _disable_plugin() -> void:
-	# Remove autoloads here.
-	pass
+	remove_autoload_singleton(AUTOLOAD_NAME)
 
 
 func _enter_tree() -> void:

@@ -14,9 +14,17 @@ config/name="DragDrop"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DragEvents="*uid://yxgy7tvjpvc7"
+
 [debug]
 
 gdscript/warnings/directory_rules={}
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dragdrop/plugin.cfg")
 
 [physics]
 
