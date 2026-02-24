@@ -21,3 +21,8 @@ You can also control Draggables in script, but do so in `_physics_process` via `
 Remember to call `super()` for overriden methods and use caution if attempting to do so while the player is dragging.
 
 I have not tested this for mobile.
+
+## Credits
+
+No AI was used when creating this code.
+While trying to create draggable physics objects, I was inspired by this video from Person Dude Games https://www.youtube.com/watch?v=JW_IyrcYNyQ
