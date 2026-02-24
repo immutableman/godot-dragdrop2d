@@ -1,4 +1,4 @@
-# DragDrop
+# DragDrop2D
 
 DragDrop2D is a simple GDScript framework to allow the player to drag/drop CharacterBody2Ds around. It supports:
  * Collision bodies for detecting mouse events.
