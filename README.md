@@ -8,7 +8,7 @@ DragDrop2D is a simple GDScript framework to allow the player to drag/drop Chara
 
 ## Usage
  * Create instances of Draggable in your scene.
- * Add at least one CollisionShape2D or CollisionPolygon2D with a layer (required for mouse detection).
+ * Add at least one CollisionShape2D or CollisionPolygon2D, and set at least one layer (required for mouse detection).
  * Assign collision layer/mask for bounds checking.
  * Add other children to create the desired visuals.
  * Optionally assign a drop mask to detect drop regions.
